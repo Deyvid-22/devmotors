@@ -5,9 +5,16 @@ import styles from "./stles.module.scss";
 
 import { X, Menu } from "lucide-react";
 import { useEffect, useState } from "react";
+import { MenuProps } from "@/utils/menu.type";
 
-export function SubMenu() {
+interface SubMenuProp {
+  menu: MenuProps;
+}
+
+export function SubMenu({ menu }: SubMenuProp) {
   const [isOpen, setIsOpen] = useState(false);
+
+  console.log(menu);
 
   useEffect(() => {
     const handleRisize = () => {
@@ -23,7 +30,6 @@ export function SubMenu() {
 
   function toggleMenu() {
     setIsOpen(!isOpen);
-    console.log(isOpen);
   }
 
   return (
@@ -40,13 +46,11 @@ export function SubMenu() {
           </button>
         )}
 
-        <li>
-          <Link href="/post/pagina-1">Pagina 1</Link>
-        </li>
-
-        <li>
-          <Link href="/post/pagina-2">Pagina 2</Link>
-        </li>
+        {menu.objects.map((item) => (
+          <li>
+            <Link href={`/post/${item.slug}`}>{item.title}</Link>
+          </li>
+        ))}
       </ul>
     </section>
   );

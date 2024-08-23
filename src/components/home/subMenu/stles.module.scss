@@ -16,6 +16,7 @@
   display: none;
   list-style: none;
   padding: 14px 0;
+  gap: 10px;
 
   li a {
     background-color: #121212;
@@ -59,15 +60,15 @@
 
 .ul li {
   a {
-    background-color: transparent;
-    color: #121212;
+    background-color: #121212;
+    color: #fff;
     font-size: 18px;
     font-weight: bold;
     transition: all 0.6s;
   }
 
   a:hover {
-    background-color: #121212;
-    color: #fff;
+    background-color: #ccbcbc;
+    color: #121212;
   }
 }

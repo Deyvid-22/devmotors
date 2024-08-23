@@ -3,19 +3,22 @@ import styles from "./page.module.scss";
 import { Container } from "@/components/container";
 import { Services } from "@/components/services";
 import { SubMenu } from "@/components/home/subMenu";
-import { getDataHome } from "@/utils/actions/get-data";
+import { getDataHome, getSubMenu } from "@/utils/actions/get-data";
 import { HomeProps } from "@/utils/home.type";
 import { Hero } from "@/components/hero";
 import { Phone } from "lucide-react";
 import { Footer } from "@/components/home/footer";
+import { MenuProps } from "@/utils/menu.type";
 
 export default async function Home() {
   const { object }: HomeProps = await getDataHome();
-  console.log(object.title);
+  const menu: MenuProps = await getSubMenu();
+  console.log(menu);
 
   return (
     <main>
-      <SubMenu />
+      {menu.objects.length > 0 && <SubMenu menu={menu} />}
+
       <Hero
         heading={object.metadata.heading}
         buttonTitle={object.metadata.cta_button.title}
