@@ -1,0 +1,15 @@
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 64px);
+  flex-direction: column;
+  gap: 10px;
+
+  a {
+    background-color: #121212;
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 4px;
+  }
+}
